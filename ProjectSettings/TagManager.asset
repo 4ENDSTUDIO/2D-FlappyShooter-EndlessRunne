@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Point
   - Enemy
+  - Bullet
+  - Virus
   layers:
   - Default
   - TransparentFX
@@ -42,4 +44,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Partikel
+    uniqueID: 458542931
     locked: 0

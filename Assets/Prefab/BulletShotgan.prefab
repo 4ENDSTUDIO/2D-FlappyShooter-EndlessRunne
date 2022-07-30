@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: -6618842842399168204}
   - component: {fileID: -158441362781036160}
   - component: {fileID: 4694010958248075792}
+  - component: {fileID: 3946851007939424380}
   m_Layer: 0
-  m_Name: Bullet
-  m_TagString: Untagged
+  m_Name: BulletShotgan
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,8 +30,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2900343772819919355}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.6263, y: -0.0775, z: 0}
-  m_LocalScale: {x: 7.2436805, y: 4.9489093, z: 1}
+  m_LocalPosition: {x: 0.61, y: 0.29, z: 0}
+  m_LocalScale: {x: 3.9714937, y: 8.568787, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 7
   m_Sprite: {fileID: -767490916428716224, guid: 4742407f85415f3479744264c81fa960,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -251,3 +252,16 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &3946851007939424380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2900343772819919355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b47f98a9e6af8314e84a25da5ea2c683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackShoot: 50

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-
+using System.Linq;
 
 public class Shooting : MonoBehaviour
 {
@@ -10,14 +10,17 @@ public class Shooting : MonoBehaviour
     Vector2 direction;
     public GameObject bullet;
     public float bulletSpeed;
-    public Transform ShootPoint;
+
+    public List <Transform> ShootPoint = new List<Transform>();
     public float fireRate;
     float readyForNextShot;
     public Animator gunAnimator;
       public Joystick joystik;
     float angle;
 
-    
+
+
+
     void Start()
     {
         
@@ -26,9 +29,9 @@ public class Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    
 
 
-        
         Vector3 moveVector = (Vector3.left * joystik.Vertical + Vector3.up * joystik.Horizontal);
 
         if(joystik.Horizontal >= .2f && joystik.Horizontal >= -.2f)
@@ -73,9 +76,13 @@ public class Shooting : MonoBehaviour
   
     void Shoot()
     {
+     
+        Transform positionBullet = ShootPoint[0];
+        
         gunAnimator.SetTrigger("Shoot"); 
-       GameObject BulletIns =  Instantiate(bullet, ShootPoint.position, ShootPoint.rotation);
+       GameObject BulletIns =  Instantiate(bullet, positionBullet.transform.position, positionBullet.transform.rotation);
         BulletIns.GetComponent<Rigidbody2D>().AddForce(BulletIns.transform.right * bulletSpeed);
+       
 
         Destroy(BulletIns, 2);
     }

@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag.Equals("Enemy"))
+        if(collision.gameObject.tag.Equals("Enemy") || (collision.gameObject.tag.Equals("Virus") ))
         {
             playerHealth -= 1;
             switch (playerHealth)
