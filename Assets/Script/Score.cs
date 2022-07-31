@@ -16,10 +16,7 @@ public class Score : MonoBehaviour
     {
         GetComponent<UnityEngine.UI.Text>().text = score.ToString();
 
-        if(score == 2)
-        {
-            SceneManager.LoadScene("Boss");
-        }
+       
     }
 
    
