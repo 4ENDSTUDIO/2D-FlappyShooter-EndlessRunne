@@ -8,8 +8,10 @@ public class Enemy : MonoBehaviour
     int currentHealth;
     public Animator anim;
     public GameObject blood;
+    private ShakeCamera shake;
     void Start()
     {
+        shake = GameObject.FindGameObjectWithTag("GameManager").GetComponent<ShakeCamera>();
         currentHealth = maxHealth;
     }
 
@@ -23,6 +25,7 @@ public class Enemy : MonoBehaviour
         currentHealth -= damage;
         if(currentHealth <= 0)
         {
+            shake.CameraShake();
             Instantiate(blood, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

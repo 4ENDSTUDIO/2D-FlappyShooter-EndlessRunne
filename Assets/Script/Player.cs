@@ -14,8 +14,10 @@ public class Player : MonoBehaviour
     bool coroutineAllowed = true;
     Color color;
     Renderer rend;
+    private ShakeCamera shake;
     void Start()
     {
+        shake = GameObject.FindGameObjectWithTag("GameManager").GetComponent<ShakeCamera>();
         playerLayer = this.gameObject.layer;
         enemyLayer = LayerMask.NameToLayer("Enemy");
         Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer, false);
@@ -46,6 +48,7 @@ public class Player : MonoBehaviour
         if(collision.gameObject.tag.Equals("Enemy") || (collision.gameObject.tag.Equals("Virus") ))
         {
             playerHealth -= 1;
+            shake.CameraShake();
             switch (playerHealth)
             {
                 case 2:
@@ -66,6 +69,7 @@ public class Player : MonoBehaviour
             }
             if(playerHealth < 1)
             {
+                shake.CameraShake();
                 gameManager.GameOver();
             }
            
