@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Score : MonoBehaviour
 {
@@ -14,6 +15,11 @@ public class Score : MonoBehaviour
     void Update()
     {
         GetComponent<UnityEngine.UI.Text>().text = score.ToString();
+
+        if(score == 2)
+        {
+            SceneManager.LoadScene("Boss");
+        }
     }
 
    
