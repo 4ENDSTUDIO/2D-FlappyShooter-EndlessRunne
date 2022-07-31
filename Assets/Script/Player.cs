@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     {
         shake = GameObject.FindGameObjectWithTag("GameManager").GetComponent<ShakeCamera>();
         playerLayer = this.gameObject.layer;
-        enemyLayer = LayerMask.NameToLayer("Obstacle");
+        enemyLayer = LayerMask.NameToLayer("Enemy");
         Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer, false);
         heart1.gameObject.SetActive(true);
         heart2.gameObject.SetActive(true);
