@@ -18,17 +18,21 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
     }
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         if(currentHealth <= 0)
         {
+            Score.upScore();
             shake.CameraShake();
             Instantiate(blood, transform.position, Quaternion.identity);
             Destroy(gameObject);
+           
         }
+
+       
     }
 
     public void OnCollisionEnter2D(Collision2D collision)

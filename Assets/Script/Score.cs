@@ -18,6 +18,10 @@ public class Score : MonoBehaviour
 
        
     }
+    public  static void  upScore()
+    {
+        score +=1;
+    }
 
    
 }
