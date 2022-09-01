@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance = null;
     public GameObject gameoverCanvas;
+    public static GameManager instance = null;
+   
     private void Awake()
     {
         if(instance == null)

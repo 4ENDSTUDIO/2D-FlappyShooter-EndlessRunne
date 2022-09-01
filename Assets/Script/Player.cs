@@ -15,10 +15,7 @@ public class Player : MonoBehaviour
     Color color;
     Renderer rend;
     private ShakeCamera shake;
-    private void Awake()
-    {
-       
-    }
+    
     void Start()
     {
         shake = GameObject.FindGameObjectWithTag("GameManager").GetComponent<ShakeCamera>();

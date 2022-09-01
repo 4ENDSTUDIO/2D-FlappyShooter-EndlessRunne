@@ -5,26 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class ScreenTransition : MonoBehaviour
 {
-    public Animator anim;
-    public string loadSceneName;
-    void Start()
+    public void LoadLevel(int sceneIndex)
     {
-        
+        StartCoroutine(LoadAsyncronus(sceneIndex));
     }
-
-    // Update is called once per frame
-    void Update()
+    IEnumerator LoadAsyncronus(int sceneIndex)
     {
-
-        if (Score.score == 2)
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
+        while(!operation.isDone)
         {
-            StartCoroutine(LoadScene());
+            Debug.Log(operation.priority);
+            yield return null;
         }
-    }
-    IEnumerator LoadScene()
-    {
-        anim.SetTrigger("end");
-        yield return new WaitForSeconds(1.5f);
-        SceneManager.LoadScene(loadSceneName);
     }
 }
