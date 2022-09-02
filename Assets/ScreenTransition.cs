@@ -5,17 +5,31 @@ using UnityEngine.SceneManagement;
 
 public class ScreenTransition : MonoBehaviour
 {
-    public void LoadLevel(int sceneIndex)
+    public Animator transitionAnimator;
+    public string sceneName;
+
+    private void Start()
     {
-        StartCoroutine(LoadAsyncronus(sceneIndex));
+       
     }
-    IEnumerator LoadAsyncronus(int sceneIndex)
+
+    public void Update()
     {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
-        while(!operation.isDone)
+        if(Score.score ==1)
         {
-            Debug.Log(operation.priority);
-            yield return null;
+            StartCoroutine(LoadScene());
         }
+       if(Input.GetKeyDown(KeyCode.Space))
+        {
+            StartCoroutine(LoadScene());
+        }
+    }
+
+  
+    public IEnumerator LoadScene()
+    {
+        transitionAnimator.SetTrigger("end");
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene(sceneName);
     }
 }

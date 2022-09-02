@@ -5,9 +5,31 @@ using UnityEngine.SceneManagement;
 
 public class ani : MonoBehaviour
 {
+    public Animator transitionAnimator;
+    public string sceneName;
+
     private void Start()
     {
-        Scene scene = SceneManager.GetActiveScene();
-        Debug.Log("Active scene is '" + scene.name + "'.");
+
+    }
+
+    public void Update()
+    {
+        if (Score.score == 5)
+        {
+            StartCoroutine(LoadScene());
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            StartCoroutine(LoadScene());
+        }
+    }
+
+
+    public IEnumerator LoadScene()
+    {
+        transitionAnimator.SetTrigger("end");
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene(sceneName);
     }
 }

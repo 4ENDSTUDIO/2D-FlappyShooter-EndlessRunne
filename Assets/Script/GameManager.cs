@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public GameObject gameoverCanvas;
     public static GameManager instance = null;
+    
    
     private void Awake()
     {
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
+       
     }
     void Start()
     {
@@ -31,7 +33,16 @@ public class GameManager : MonoBehaviour
     {
        
     }
-   
+  public void destroyDDo()
+    {
+        Scene scene = SceneManager.GetActiveScene();
+        if (scene.name == "Play")
+        {
+            Destroy(gameObject);
+            Debug.Log("I am inside the if statement");
+        }
+    }
+
     public void GameOver()
     {
         gameoverCanvas.SetActive(true);
@@ -41,5 +52,6 @@ public class GameManager : MonoBehaviour
     public void Replay()
     {
         SceneManager.LoadScene(0);
+        Time.timeScale = 1;
     }
 }
