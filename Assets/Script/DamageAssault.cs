@@ -24,6 +24,10 @@ public class DamageAssault : MonoBehaviour
         {
             collision.collider.GetComponent<Enemy>().TakeDamage(attackShoot);
         }
-        
+        if (collision.gameObject.tag.Equals("Boss"))
+        {
+            collision.collider.GetComponent<Boss>().TakeDamagee(attackShoot);
+        }
+
     }
 }

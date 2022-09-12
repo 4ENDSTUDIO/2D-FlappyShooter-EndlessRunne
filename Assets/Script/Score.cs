@@ -28,6 +28,11 @@ public class Score : MonoBehaviour
     {
         score +=1;
     }
+
+    public static void BossScore()
+    {
+        score += 10;
+    }
  
 
 }

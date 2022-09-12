@@ -15,7 +15,7 @@ public class ani : MonoBehaviour
 
     public void Update()
     {
-        if (Score.score == 5)
+        if (Score.score == 1)
         {
             StartCoroutine(LoadScene());
         }

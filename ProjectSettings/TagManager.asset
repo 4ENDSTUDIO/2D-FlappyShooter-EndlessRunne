@@ -9,6 +9,7 @@ TagManager:
   - Bullet
   - Virus
   - GameManager
+  - Boss
   layers:
   - Default
   - TransparentFX
